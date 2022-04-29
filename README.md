@@ -1,4 +1,4 @@
-# Magic_Cards_Organizer
+# Magic Cards Organizer
 ### App to organize your decks of Magic The Gathering and search about new cards.
 This project will be a app to save decks and customize then and see cards about the game Magic the Gathering.
 
