@@ -10,8 +10,8 @@
         android:id="@+id/recyclerview_decks"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-13dp" />
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="-47dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"

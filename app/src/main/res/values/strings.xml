@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">MagicCardsOrganizer</string>
-    <string name="decks_page_tab">Decks</string>
-    <string name="cards_page_tab">Cards</string>
+    <string name="decks_bottom_navigation">Decks</string>
+    <string name="cards_bottom_navigation">Cards</string>
 </resources>

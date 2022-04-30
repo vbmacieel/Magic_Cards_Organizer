@@ -5,8 +5,9 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.131" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/cards_fragment.xml" value="0.287962962962963" />
-        <entry key="app/src/main/res/layout/decks_fragment.xml" value="0.287962962962963" />
+        <entry key="app/src/main/res/layout/cards_fragment.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/decks_fragment.xml" value="0.22" />
+        <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.287962962962963" />
       </map>
     </option>
   </component>
