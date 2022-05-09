@@ -5,6 +5,7 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface RetrofitService {
 
@@ -21,4 +22,7 @@ interface RetrofitService {
 
     @GET("cards")
     fun getAllCards(): Call<CardsListModel>
+
+    @GET("cards/{id}")
+    fun getCardDetail(@Path("id") cardId: String): Call<CardsListModel>
 }

@@ -9,18 +9,18 @@ import com.example.magiccardsorganizer.ui.fragments.CardsFragment
 import com.example.magiccardsorganizer.ui.fragments.DecksFragment
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var mBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        mBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(mBinding.root)
         setUpNavigationBottomMenu()
         setFragment(DecksFragment(), "Decks")
     }
 
     private fun setUpNavigationBottomMenu() {
-        binding.bottomNavigationMenu.setOnItemSelectedListener { menu ->
+        mBinding.bottomNavigationMenu.setOnItemSelectedListener { menu ->
             when (menu.itemId) {
                 R.id.decks -> {
                     val decksFragment = DecksFragment()

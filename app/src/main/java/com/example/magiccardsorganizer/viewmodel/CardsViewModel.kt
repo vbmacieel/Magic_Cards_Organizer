@@ -12,7 +12,10 @@ import retrofit2.Response
 class CardsViewModel(private val cardsRepository: CardsRepository) : ViewModel() {
 
     private var _cardsList = MutableLiveData<CardsListModel>()
-    val cardsList : LiveData<CardsListModel> = _cardsList
+    private var _cardDetails = MutableLiveData<CardsListModel>()
+    var errorMessage = MutableLiveData<String>()
+    val cardsList: LiveData<CardsListModel> = _cardsList
+    val cardDetails: LiveData<CardsListModel> = _cardDetails
 
     fun getAllCards() {
         val request = cardsRepository.getAllCards()
@@ -26,6 +29,22 @@ class CardsViewModel(private val cardsRepository: CardsRepository) : ViewModel()
 
             override fun onFailure(call: Call<CardsListModel>, t: Throwable) {
                 TODO("Not yet implemented")
+            }
+        })
+    }
+
+    fun getCardDetails(cardId: String) {
+        val request = cardsRepository.getCardDetails(cardId)
+        request.enqueue(object : Callback<CardsListModel> {
+            override fun onResponse(
+                call: Call<CardsListModel>,
+                response: Response<CardsListModel>
+            ) {
+                _cardDetails.value = response.body()
+            }
+
+            override fun onFailure(call: Call<CardsListModel>, t: Throwable) {
+                errorMessage.value = t.message.toString()
             }
         })
     }

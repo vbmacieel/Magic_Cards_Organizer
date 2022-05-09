@@ -15,7 +15,8 @@ import com.example.magiccardsorganizer.model.CardsListModel
 import com.example.magiccardsorganizer.ui.fragments.CardsFragment
 
 class CardsRecyclerView(
-    private val cardsList: CardsListModel
+    private val cardsList: CardsListModel,
+    private val listener: OnCardClickListener
 ) : RecyclerView.Adapter<CardsRecyclerView.CardsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardsViewHolder =
@@ -30,13 +31,24 @@ class CardsRecyclerView(
     override fun getItemCount(): Int = cardsList.cards.size
 
     inner class CardsViewHolder(private val binding: CardItemLayoutBinding)
-        : RecyclerView.ViewHolder(binding.root) {
+        : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
         fun bind(card: CardModel) {
             binding.apply {
-                Glide.with(binding.root).load(card.imageUrl)
+                Glide.with(root).load(card.imageUrl)
                     .into(this.cardImage)
                 cardName.text = card.name
             }
+            binding.root.setOnClickListener(this)
         }
+
+        override fun onClick(p0: View?) {
+            val position = adapterPosition
+            val card = cardsList.cards[position]
+            listener.onCardClick(position, card.id)
+        }
+    }
+
+    interface OnCardClickListener {
+        fun onCardClick(position: Int, id: String)
     }
 }
